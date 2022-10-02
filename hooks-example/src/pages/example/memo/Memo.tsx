@@ -1,5 +1,6 @@
 import { ChangeEvent, useMemo, useState } from "react";
 import { useTime } from "~/hooks/useTime";
+import HooksLayout from "~/layout/HooksLayout";
 
 function isPrime(n: number) {
   const max = Math.ceil(Math.sqrt(n));
@@ -31,9 +32,16 @@ const Memo = () => {
     }
     return res;
   }, [inputVal]);
+  // const allPrimes:number[]=[]
+  // for (let counter = 2; counter < selectedNum; counter++) {
+  //   console.log("Prime");
+  //   if (isPrime(counter)) {
+  //     allPrimes.push(counter);
+  //   }
+  // }
 
   return (
-    <div>
+    <HooksLayout>
       <p className="text-right">{time.toString()}</p>
       <div className="text-center p-5">
         <input
@@ -49,7 +57,7 @@ const Memo = () => {
         <h1 className="text-blue-600 text-3xl">useMemo Example</h1>
         <span className="prime-list">{allPrimes.join(", ")}</span>
       </div>
-    </div>
+    </HooksLayout>
   );
 };
 
